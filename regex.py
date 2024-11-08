@@ -5,6 +5,9 @@ from file import *
 def find_regex(regex, string, group_count):
     result = []
     regex_result = re.search(re.compile(regex), string)
+
+    if(not regex_result): 
+        return []
     for i in range(1, group_count + 1):
         result.append(regex_result.group(i))
 
