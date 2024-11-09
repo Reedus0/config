@@ -9,7 +9,7 @@ def read_pe_string(file, address):
     offset = get_file_offset(file, address)
 
     file_data = read_file(file)
-    if (file_data[offset + 1]): # check if unicode or ascii string
+    if (file_data[offset + 1]):
         return read_ascii_string(file_data, offset)
     else:
         return read_unicode_string(file_data, offset)
