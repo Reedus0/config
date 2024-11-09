@@ -7,6 +7,7 @@ from output import *
 def main():
     if (len(sys.argv) < 2):
         print(f"Usage: {sys.argv[0]} filename")
+        
         exit(1)
 
     file = sys.argv[1]
@@ -19,10 +20,10 @@ def main():
 
     result["filename"] = file
     
-    result["server_ip"], result["server_port"] = find_ip_and_port(file)
-    result["user_agent"] = find_user_agent(file)
-    result["url"] = find_c2_url(file)
-    result["content_type"] = find_content_type(file)
+    result["c2_address"], result["c2_port"] = find_ip_and_port(file)
+    result["c2_user_agent"] = find_user_agent(file)
+    result["c2_url"] = find_c2_url(file)
+    result["c2_content_type"] = find_content_type(file)
 
     output_to_file(result)
 
